@@ -2,7 +2,6 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ScrollReveal from '../components/ScrollReveal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,7 +34,7 @@ const Home = () => {
       });
     });
 
-    return () => ctx.revert(); // Nettoyage GSAP pour éviter les erreurs
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -70,8 +69,6 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-purple-300 via-pink-300 to-red-300 animate-float" />
         </div>
       </section>
-
-      {/* Additional sections (if needed) */}
     </>
   );
 };
