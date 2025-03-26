@@ -17,13 +17,14 @@ function App() {
         <main className="scroll-container">
           <AnimatePresence mode="wait">
             <Routes>
-              <Route path="/" element={<Navigate to="/Home" />} /> {/* Redirige "/" vers "/Home" */}
+              {/* ✅ Redirection automatique vers Home */}
+              <Route path="/" element={<Navigate replace to="/Home" />} />
               <Route path="/Home" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/resume" element={<Resume />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<Navigate to="/Home" />} /> {/* Redirection pour éviter la page blanche */}
+              <Route path="*" element={<Navigate replace to="/Home" />} /> {/* Gestion des erreurs */}
             </Routes>
           </AnimatePresence>
         </main>
