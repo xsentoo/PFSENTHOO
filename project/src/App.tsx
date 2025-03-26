@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
@@ -17,14 +17,13 @@ function App() {
         <main className="scroll-container">
           <AnimatePresence mode="wait">
             <Routes>
-              {/* ✅ Redirection automatique vers Home */}
-              <Route path="/" element={<Navigate replace to="/Home" />} />
-              <Route path="/Home" element={<Home />} />
+              <Route path="/" element={<Home />} /> {/* ✅ Home affiché sur / */}
+              <Route path="/home" element={<Home />} /> {/* ✅ /home fonctionne aussi */}
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/resume" element={<Resume />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<Navigate replace to="/Home" />} /> {/* Gestion des erreurs */}
+              <Route path="*" element={<Home />} /> {/* ✅ Redirection si la route n'existe pas */}
             </Routes>
           </AnimatePresence>
         </main>
